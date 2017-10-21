@@ -208,7 +208,7 @@ public class MainActivity extends Activity implements CameraBridgeViewBase.CvCam
     * TensorFlow
     * */
 
-    //TODO Declare variables here
+    //TODO Declare input model variables here
     private static final int INPUT_SIZE = 28;
     private static final String INPUT_NAME = "input";
     private static final String OUTPUT_NAME = "output";
