@@ -22,6 +22,7 @@ class TensorFlowImageClassifier {
     // Pre-allocated buffers.
     private float[] outputs;
 
+    //TODO Add member here
     private TensorFlowInferenceInterface inferenceInterface;
 
     private TensorFlowImageClassifier() {
@@ -38,6 +39,7 @@ class TensorFlowImageClassifier {
         c.inputName = inputName;
         c.outputName = outputName;
 
+        //TODO Add TensorFlowInferenceInterface instantiation here
         c.inferenceInterface = new TensorFlowInferenceInterface(assetManager, modelFilename);
 
         int numClasses = (int) c.inferenceInterface.graph().operation(outputName).output(0).shape().size(1);
@@ -53,6 +55,7 @@ class TensorFlowImageClassifier {
     int recognizeImage(final float[] pixels) {
         int recognitions = 0;
 
+        //TODO Add TensorFlow process code here
         // Log this method so that it can be analyzed with systrace.
         TraceCompat.beginSection("recognizeImage");
 
@@ -72,7 +75,6 @@ class TensorFlowImageClassifier {
         TraceCompat.endSection();
 
         Log.d(TAG, "" + Arrays.toString(outputs));
-
 
         for (int i = 1; i < outputs.length; i++) {
             if (outputs[recognitions] > outputs[i]) {
