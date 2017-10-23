@@ -74,10 +74,8 @@ class TensorFlowImageClassifier {
         inferenceInterface.fetch(outputName, outputs);
         TraceCompat.endSection();
 
-        Log.d(TAG, "" + Arrays.toString(outputs));
-
         for (int i = 1; i < outputs.length; i++) {
-            if (outputs[recognitions] > outputs[i]) {
+            if (outputs[i] > outputs[recognitions]) {
                 recognitions = i;
             }
         }
